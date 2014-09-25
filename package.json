@@ -1,0 +1,9 @@
+{
+    "name": "Ember-Mailer",
+    "version": "0.0.1",
+    "private": true,
+    "author": "Dooley NSEWOLO",
+    "dependencies": {
+        "bootstrap": "latest"
+    }
+}
