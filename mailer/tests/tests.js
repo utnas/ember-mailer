@@ -13,11 +13,25 @@ module("Mailer Integration tests", {
     }
 });
 
-test("/", function () {
-    visit("/");
-
+test('Route name should be Index', function () {
+    visit('index');
     andThen(function () {
-        equal(find("h2").text(), "Welcome to Ember.js", "Application header is rendered");
-        equal(find("li").length, 3, "There are three items in the list");
+        equal(currentRouteName(), 'index', 'Current route name is Index');
     });
 });
+
+test('Visit index', function () {
+    visit('/');
+    andThen(function () {
+        equal(find('li').length, 4, 'There are four items in the list');
+    });
+});
+
+
+test('Nav should have Email Box Archives Sents Spams', function () {
+    visit('index');
+    andThen(function () {
+        equal(find('li').text(), 'Email BoxArchivesSentsSpams', 'Contains links: Email Box, Archives, Sents, Spams');
+    });
+});
+

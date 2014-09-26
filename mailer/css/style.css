@@ -1,4 +1,65 @@
-/* Put your CSS here */
 .ember-application {
-    margin: 20px;
+    margin: 0px;
+}
+
+.spacer {
+    margin-top: 20px;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+    background-color: #428BCA;
+    color: #ffffff;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.glyphicon-chevron-up {
+    font-size: 9px;
+}
+
+.glyphicon-chevron-down {
+    font-size: 9px;
+}
+
+.highlighting {
+    background-color: #cabd69;
+}
+
+.labelNewEmail {
+    width: auto;
+}
+
+.emailContent {
+    width: 100%;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.input.ng-invalid {
+    background-color: #ca0e08;
+}
+
+.from {
+    width: 20%;
+}
+
+.to {
+    width: 15%;
+}
+
+.subject {
+    width: 45%;
+}
+
+.date {
+    width: 15%;
+}
+
+a {
+    cursor: pointer;
 }
