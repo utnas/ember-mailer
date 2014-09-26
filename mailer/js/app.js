@@ -1,11 +1,11 @@
-App = Ember.Application.create();
+Mailer = Ember.Application.create();
 
-App.Router.map(function() {
-  // put your routes here
+Mailer.Router.map(function () {
+    // put your routes here
 });
 
-App.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return ['red', 'yellow', 'blue'];
-  }
+Mailer.IndexRoute = Ember.Route.extend({
+    model: function () {
+        return ['red', 'yellow', 'blue'];
+    }
 });
