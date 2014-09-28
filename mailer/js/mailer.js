@@ -1,7 +1,8 @@
 Mailer = Ember.Application.create();
 
 Mailer.Router.map(function () {
-
+    this.resource('received', {path: 'received'}, function () {
+    });
 });
 
 Mailer.IndexRoute = Ember.Route.extend({
@@ -9,6 +10,25 @@ Mailer.IndexRoute = Ember.Route.extend({
         return Mailer.FIXTURES;
     }
 });
+
+Mailer.ReceivedRoute = Ember.Route.extend({
+    model: function () {
+        return Mailer.getMailFolder('MAILBOX');
+    }
+});
+
+Mailer.getMailFolder = function (name) {
+    var folders = Mailer.FIXTURES,
+        iterator = 0,
+        result = null;
+    for (iterator; iterator < folders.length; iterator++) {
+        result = folders[iterator];
+        if (result.value === name) {
+            return result;
+        }
+    }
+    return '';
+};
 
 Mailer.FIXTURES = [
     { value: "MAILBOX",

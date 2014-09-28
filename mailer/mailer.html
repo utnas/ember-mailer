@@ -11,19 +11,61 @@
 <body>
 
 <script type="text/x-handlebars">
-    {{outlet}}
-</script>
-
-<script type="text/x-handlebars" id="index">
     <div class="container">
         <div class="spacer nav">
             <ul class="nav nav-pills navbar-left">
-                {{#each item in model}}
-                <li>{{#link-to}}{{item.label}}{{/link-to}}</li>
-                {{/each}}
+                <li>{{#link-to 'received'}}Mail Box{{/link-to}}</li>
+                <li>{{#link-to ''}}Archives{{/link-to}}</li>
+                <li>{{#link-to ''}}Sent{{/link-to}}</li>
+                <li>{{#link-to ''}}Spams{{/link-to}}</li>
             </ul>
         </div>
+        <div class="spacer input-group">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-search"></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Find an email...">
+
+            <div class="input-group-btn">
+                <button class="btn btn-default">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+        </div>
+        {{outlet}}
     </div>
+</script>
+
+<script type="text/x-handlebars" id="received">
+    <table class="table table-hover spacer">
+        <thead>
+        <tr>
+            <th class="from">
+                <a>From</a>
+            </th>
+            <th class="to">
+                <a>To</a>
+            </th>
+            <th class="subject">
+                <a>Subject</a>
+            </th>
+            <th class="date">
+                <a>Date</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each email in model.emails}}
+        <tr>
+            <td>{{email.from}}</td>
+            <td>{{email.to}}to</td>
+            <td>{{email.subject}}</td>
+            <td>{{email.date }}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
 </script>
 
 <script type="text/javascript" src="js/_libs/handlebars.js"></script>

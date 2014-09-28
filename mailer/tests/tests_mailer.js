@@ -27,11 +27,11 @@ test('Visit index', function () {
     });
 });
 
-
 test('Nav should have Email Box Archives Sents Spams', function () {
     visit('index');
     andThen(function () {
-        equal(find('li').text(), 'Email BoxArchivesSentsSpams', 'Contains links: Email Box, Archives, Sents, Spams');
+        equal(find('li').text(), 'Mail BoxArchivesSentSpams', 'Contains links: Email Box, Archives, Sents, Spams');
     });
 });
+
 
