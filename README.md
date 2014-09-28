@@ -9,3 +9,4 @@ Dependencies:
 -   Ember-Data: "v1.0.0-beta.10"
 -   Handlebars: "v1.3.0"
 -   JQuery: "v1.10.2"
+-   EmberTest(QUnit)
