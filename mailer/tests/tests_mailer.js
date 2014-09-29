@@ -14,7 +14,7 @@ module("Mailer Integration tests", {
 });
 
 test('Route name should be Index', function () {
-    visit('index');
+    visit('/');
     andThen(function () {
         equal(currentRouteName(), 'index', 'Current route name is Index');
     });

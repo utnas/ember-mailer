@@ -1,7 +1,11 @@
 Mailer = Ember.Application.create();
 
+Mailer.ApplicationAdapter = DS.FixtureAdapter;
+
 Mailer.Router.map(function () {
     this.resource('received', {path: 'received'}, function () {
+    });
+    this.resource('email', {path: '/:id'}, function () {
     });
 });
 
@@ -14,6 +18,12 @@ Mailer.IndexRoute = Ember.Route.extend({
 Mailer.ReceivedRoute = Ember.Route.extend({
     model: function () {
         return Mailer.getMailFolder('MAILBOX');
+    }
+});
+
+Mailer.EmailRoute = Ember.Route.extend({
+    model: function () {
+        return {};
     }
 });
 

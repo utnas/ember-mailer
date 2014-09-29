@@ -54,18 +54,22 @@
             </th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="clickable">
         {{#each email in model.emails}}
-        <tr>
-            <td>{{email.from}}</td>
-            <td>{{email.to}}to</td>
-            <td>{{email.subject}}</td>
-            <td>{{email.date }}</td>
-        </tr>
+        {{#link-to 'email' email tagName="tr"}}
+        <td>{{email.from}}</td>
+        <td>{{email.to}}</td>
+        <td>{{email.subject}}</td>
+        <td>{{email.date }}</td>
+        {{/link-to}}
         {{/each}}
         </tbody>
     </table>
     <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
+</script>
+
+<script type="text/x-handlebars" id="email">
+    <h1>{{subject}}</h1>
 </script>
 
 <script type="text/javascript" src="js/_libs/handlebars.js"></script>
