@@ -5,6 +5,12 @@ Mailer.ApplicationAdapter = DS.FixtureAdapter;
 Mailer.Router.map(function () {
     this.resource('received', {path: 'received'}, function () {
     });
+    this.resource('archives', {path: 'archives'}, function () {
+    });
+    this.resource('sent', {path: 'sent'}, function () {
+    });
+    this.resource('spam', {path: 'spam'}, function () {
+    });
     this.resource('email', {path: '/:id'}, function () {
     });
 });
@@ -18,6 +24,24 @@ Mailer.IndexRoute = Ember.Route.extend({
 Mailer.ReceivedRoute = Ember.Route.extend({
     model: function () {
         return Mailer.getMailFolder('MAILBOX');
+    }
+});
+
+Mailer.ArchivesRoute = Ember.Route.extend({
+    model: function () {
+        return Mailer.getMailFolder('TRASH');
+    }
+});
+
+Mailer.SentRoute = Ember.Route.extend({
+    model: function () {
+        return Mailer.getMailFolder('SENT');
+    }
+});
+
+Mailer.SpamRoute = Ember.Route.extend({
+    model: function () {
+        return Mailer.getMailFolder('SPAM');
     }
 });
 

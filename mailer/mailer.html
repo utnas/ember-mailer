@@ -15,9 +15,9 @@
         <div class="spacer nav">
             <ul class="nav nav-pills navbar-left">
                 <li>{{#link-to 'received'}}Mail Box{{/link-to}}</li>
-                <li>{{#link-to ''}}Archives{{/link-to}}</li>
-                <li>{{#link-to ''}}Sent{{/link-to}}</li>
-                <li>{{#link-to ''}}Spams{{/link-to}}</li>
+                <li>{{#link-to 'archives'}}Archives{{/link-to}}</li>
+                <li>{{#link-to 'sent'}}Sent{{/link-to}}</li>
+                <li>{{#link-to 'spam'}}Spam{{/link-to}}</li>
             </ul>
         </div>
         <div class="spacer input-group">
@@ -34,6 +34,38 @@
         </div>
         {{outlet}}
     </div>
+</script>
+
+<script type="text/x-handlebars" id="archives">
+    <table class="table table-hover spacer">
+        <thead>
+        <tr>
+            <th class="from">
+                <a>From</a>
+            </th>
+            <th class="to">
+                <a>To</a>
+            </th>
+            <th class="subject">
+                <a>Subject</a>
+            </th>
+            <th class="date">
+                <a>Date</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="clickable">
+        {{#each email in model.emails}}
+        {{#link-to 'email' email tagName="tr"}}
+        <td>{{email.from}}</td>
+        <td>{{email.to}}</td>
+        <td>{{email.subject}}</td>
+        <td>{{email.date }}</td>
+        {{/link-to}}
+        {{/each}}
+        </tbody>
+    </table>
+    <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
 </script>
 
 <script type="text/x-handlebars" id="received">
@@ -68,8 +100,75 @@
     <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
 </script>
 
-<script type="text/x-handlebars" id="email">
+<script type="text/x-handlebars" id="sent">
+    <table class="table table-hover spacer">
+        <thead>
+        <tr>
+            <th class="from">
+                <a>From</a>
+            </th>
+            <th class="to">
+                <a>To</a>
+            </th>
+            <th class="subject">
+                <a>Subject</a>
+            </th>
+            <th class="date">
+                <a>Date</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="clickable">
+        {{#each email in model.emails}}
+        {{#link-to 'email' email tagName="tr"}}
+        <td>{{email.from}}</td>
+        <td>{{email.to}}</td>
+        <td>{{email.subject}}</td>
+        <td>{{email.date }}</td>
+        {{/link-to}}
+        {{/each}}
+        </tbody>
+    </table>
+    <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
+</script>
 
+<script type="text/x-handlebars" id="spam">
+    <table class="table table-hover spacer">
+        <thead>
+        <tr>
+            <th class="from">
+                <a>From</a>
+            </th>
+            <th class="to">
+                <a>To</a>
+            </th>
+            <th class="subject">
+                <a>Subject</a>
+            </th>
+            <th class="date">
+                <a>Date</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="clickable">
+        {{#each email in model.emails}}
+        {{#link-to 'email' email tagName="tr"}}
+        <td>{{email.from}}</td>
+        <td>{{email.to}}</td>
+        <td>{{email.subject}}</td>
+        <td>{{email.date }}</td>
+        {{/link-to}}
+        {{/each}}
+        </tbody>
+    </table>
+    <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
+</script>
+
+<script type="text/x-handlebars" id="components/emails">
+
+</script>
+
+<script type="text/x-handlebars" id="email">
     <pre class="spacer">
     ID: {{id}}<br/>
     Date: {{date}}<br/>
