@@ -24,7 +24,7 @@
             <div class="input-group-addon">
                 <span class="glyphicon glyphicon-search"></span>
             </div>
-            <input type="text" class="form-control" placeholder="Find an email...">
+            <input type="text" class="form-control" placeholder="Find an email ...">
 
             <div class="input-group-btn">
                 <button class="btn btn-default">
@@ -37,102 +37,22 @@
 </script>
 
 <script type="text/x-handlebars" id="archives">
-    <table class="table table-hover spacer">
-        <thead>
-        <tr>
-            <th class="from">
-                <a>From</a>
-            </th>
-            <th class="to">
-                <a>To</a>
-            </th>
-            <th class="subject">
-                <a>Subject</a>
-            </th>
-            <th class="date">
-                <a>Date</a>
-            </th>
-        </tr>
-        </thead>
-        <tbody class="clickable">
-        {{#each email in model.emails}}
-        {{#link-to 'email' email tagName="tr"}}
-        <td>{{email.from}}</td>
-        <td>{{email.to}}</td>
-        <td>{{email.subject}}</td>
-        <td>{{email.date }}</td>
-        {{/link-to}}
-        {{/each}}
-        </tbody>
-    </table>
-    <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
+    {{e-mails emails=model.emails}}
 </script>
 
 <script type="text/x-handlebars" id="received">
-    <table class="table table-hover spacer">
-        <thead>
-        <tr>
-            <th class="from">
-                <a>From</a>
-            </th>
-            <th class="to">
-                <a>To</a>
-            </th>
-            <th class="subject">
-                <a>Subject</a>
-            </th>
-            <th class="date">
-                <a>Date</a>
-            </th>
-        </tr>
-        </thead>
-        <tbody class="clickable">
-        {{#each email in model.emails}}
-        {{#link-to 'email' email tagName="tr"}}
-        <td>{{email.from}}</td>
-        <td>{{email.to}}</td>
-        <td>{{email.subject}}</td>
-        <td>{{email.date }}</td>
-        {{/link-to}}
-        {{/each}}
-        </tbody>
-    </table>
-    <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
+    {{e-mails emails=model.emails}}
 </script>
 
 <script type="text/x-handlebars" id="sent">
-    <table class="table table-hover spacer">
-        <thead>
-        <tr>
-            <th class="from">
-                <a>From</a>
-            </th>
-            <th class="to">
-                <a>To</a>
-            </th>
-            <th class="subject">
-                <a>Subject</a>
-            </th>
-            <th class="date">
-                <a>Date</a>
-            </th>
-        </tr>
-        </thead>
-        <tbody class="clickable">
-        {{#each email in model.emails}}
-        {{#link-to 'email' email tagName="tr"}}
-        <td>{{email.from}}</td>
-        <td>{{email.to}}</td>
-        <td>{{email.subject}}</td>
-        <td>{{email.date }}</td>
-        {{/link-to}}
-        {{/each}}
-        </tbody>
-    </table>
-    <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
+    {{e-mails emails=model.emails}}
 </script>
 
 <script type="text/x-handlebars" id="spam">
+    {{e-mails emails=model.emails}}
+</script>
+
+<script type="text/x-handlebars" id="components/e-mails">
     <table class="table table-hover spacer">
         <thead>
         <tr>
@@ -151,7 +71,7 @@
         </tr>
         </thead>
         <tbody class="clickable">
-        {{#each email in model.emails}}
+        {{#each email in emails}}
         {{#link-to 'email' email tagName="tr"}}
         <td>{{email.from}}</td>
         <td>{{email.to}}</td>
@@ -161,11 +81,7 @@
         {{/each}}
         </tbody>
     </table>
-    <div class="alert alert-info"> The folder contains {{model.emails.length}} emails.</div>
-</script>
-
-<script type="text/x-handlebars" id="components/emails">
-
+    <div class="alert alert-info"> The folder contains {{emails.length}} emails.</div>
 </script>
 
 <script type="text/x-handlebars" id="email">
@@ -175,8 +91,8 @@
     From: {{from}}<br/>
     TO: {{to}}<br/>
     Subject: {{subject}}<br/>
-    Content: {{message}}
     </pre>
+    {{message}}
 </script>
 
 <script type="text/javascript" src="js/_libs/handlebars.js"></script>

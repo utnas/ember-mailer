@@ -23,7 +23,3 @@ function Email(from, to, subject, content) {
         self.content = '';
     };
 }
-
-exports.createEmail = function createEmail(from, to, subject, content) {
-    return new Email(from, to, subject, content);
-};

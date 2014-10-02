@@ -15,6 +15,7 @@ Mailer.Router.map(function () {
     });
 });
 
+// Routes
 Mailer.IndexRoute = Ember.Route.extend({
     model: function () {
         return Mailer.FIXTURES;
@@ -51,6 +52,7 @@ Mailer.EmailRoute = Ember.Route.extend({
     }
 });
 
+// Data
 Mailer.getMailFolder = function (name) {
     var folders = Mailer.FIXTURES,
         iterator = 0,
