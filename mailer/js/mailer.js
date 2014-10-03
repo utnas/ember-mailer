@@ -15,6 +15,22 @@ Mailer.Router.map(function () {
     });
 });
 
+// Controller
+Mailer.ApplicationController = Ember.Controller.extend({
+    search: '',
+
+    actions: {
+        query: function () {
+            var query = this.get('search');
+            // Apply the filter
+        },
+
+        erase: function () {
+            this.set('search', '');
+        }
+    }
+});
+
 // Routes
 Mailer.IndexRoute = Ember.Route.extend({
     model: function () {

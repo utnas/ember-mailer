@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<script type="text/x-handlebars">
+<script type="text/x-handlebars" id="application">
     <div class="container">
         <div class="spacer nav">
             <ul class="nav nav-pills navbar-left">
@@ -24,10 +24,10 @@
             <div class="input-group-addon">
                 <span class="glyphicon glyphicon-search"></span>
             </div>
-            <input type="text" class="form-control" placeholder="Find an email ...">
+            {{input type="text" class="form-control" value=search action="query" placeholder="Find an email ..."}}
 
             <div class="input-group-btn">
-                <button class="btn btn-default">
+                <button class="btn btn-default" {{action 'erase' on='click'}}>
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
             </div>
