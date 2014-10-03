@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>Ember Starter Kit</title>
@@ -20,18 +20,20 @@
                 <li>{{#link-to 'spam'}}Spam{{/link-to}}</li>
             </ul>
         </div>
-        <div class="spacer input-group">
-            <div class="input-group-addon">
-                <span class="glyphicon glyphicon-search"></span>
-            </div>
-            {{input type="text" class="form-control" value=search action="query" placeholder="Find an email ..."}}
+        <form {{action 'query' on='submit'}}>
+            <div class="spacer input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+                {{input type="text" class="form-control" value=search action="query" placeholder="Find an email ..."}}
 
-            <div class="input-group-btn">
-                <button class="btn btn-default" {{action 'erase' on='click'}}>
+                <div class="input-group-btn">
+                    <button class="btn btn-default" {{action 'erase' on='click'}}>
                     <span class="glyphicon glyphicon-remove"></span>
-                </button>
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>
         {{outlet}}
     </div>
 </script>

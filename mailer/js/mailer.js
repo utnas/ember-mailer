@@ -18,15 +18,24 @@ Mailer.Router.map(function () {
 // Controller
 Mailer.ApplicationController = Ember.Controller.extend({
     search: '',
+    filtered: [],
 
     actions: {
         query: function () {
             var query = this.get('search');
+
             // Apply the filter
+            if (!Ember.empty(query)) {
+
+                alert('Query');
+            }
+
+
         },
 
         erase: function () {
             this.set('search', '');
+            // And remove the filter from content
         }
     }
 });
