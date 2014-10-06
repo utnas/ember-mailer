@@ -5,7 +5,7 @@ Mailer.Email = DS.Model.extend({
     to: DS.attr('string'),
     subject: DS.attr('string'),
     content: DS.attr('string'),
-    date: DS.attr('string'),
+    date: DS.attr('date'),
 
     folder: DS.belongsTo('folder'),
 
